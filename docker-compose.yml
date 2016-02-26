@@ -1,0 +1,16 @@
+nginx:
+  image: jwilder/nginx-proxy
+  ports:
+    - "80:80"
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock:ro
+  restart: always
+dnsmasq:
+  image: andyshinn/dnsmasq
+  ports:
+    - "${DOCKER_IP}:53:53/tcp"
+    - "${DOCKER_IP}:53:53/udp"
+  cap_add:
+    - NET_ADMIN
+  command: "--address=/docker/${DOCKER_IP}"
+  restart: always
