@@ -12,5 +12,5 @@ dnsmasq:
     - "53:53/udp"
   cap_add:
     - NET_ADMIN
-  command: "--address=/docker/${DOCKER_IP}"
+  command: "--address=/${DOCKER_TLD}/${DOCKER_IP}"
   restart: always

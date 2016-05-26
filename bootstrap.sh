@@ -87,7 +87,7 @@ log 'Booting Dream services'
 # It is essential this runs via bootstrap as we need to set DOCKER_IP so dnsmasq
 # will accept requests from the host machine. Unfortunately couldn't find a way
 # to make this simpler...
-DOCKER_IP=${docker_ip} docker-compose up -d
+DOCKER_TLD=${resolver_tld} DOCKER_IP=${docker_ip} docker-compose up -d
 
 if [[ $runtime == 'toolbox' ]]; then
   log 'Making sure Dream machine boots at login'
