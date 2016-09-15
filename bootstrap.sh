@@ -20,6 +20,13 @@ add_missing_line() {
   grep -q -F "${1}" ${2} || echo "${1}" >> ${2}
 }
 
+
+if ! hash docker 2>/dev/null; then
+  echo "You do not have Docker installed. Please install the appropriate runtime:"
+  echo "  https://www.docker.com/products/overview"
+  exit 1
+fi
+
 # And now the magic...
 log "Adding ${resolver_tld} resolver"
 
