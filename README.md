@@ -2,6 +2,12 @@
 
 The Awesome-Docker-Development-Environment-With-Resolving-Domains-Super-Fantastic Dream Machine (for OSX)
 
+## Requirements
+
+You must install an appropriate Docker runtime before running the bootstrap.
+
+Visit https://www.docker.com/products/overview for more details.
+
 ## Instructions
 
 Clone and cd to this repo, then run the bootstrapper to get things going
