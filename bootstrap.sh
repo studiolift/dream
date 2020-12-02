@@ -6,7 +6,7 @@
 
 # Configuration
 resolver_tld='docker'
-docker_ip='127.0.0.1'
+docker_ip='0.0.0.0'
 
 # Helpers
 bold=`tput bold`
