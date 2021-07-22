@@ -1,16 +1,20 @@
-nginx:
-  image: jwilder/nginx-proxy
-  ports:
-    - "80:80"
-  volumes:
-    - /var/run/docker.sock:/tmp/docker.sock:ro
-  restart: always
-dnsmasq:
-  image: andyshinn/dnsmasq
-  ports:
-    - "53:53/tcp"
-    - "53:53/udp"
-  cap_add:
+services:
+  dnsmasq:
+    cap_add:
     - NET_ADMIN
-  command: "--address=/docker/0.0.0.0"
-  restart: always
+    command: --address=/docker/0.0.0.0
+    image: andyshinn/dnsmasq
+    network_mode: bridge
+    ports:
+    - 53:53/tcp
+    - 53:53/udp
+    restart: always
+  nginx:
+    image: jwilder/nginx-proxy
+    network_mode: bridge
+    ports:
+    - 80:80/tcp
+    restart: always
+    volumes:
+    - /var/run/docker.sock:/tmp/docker.sock:ro
+version: '2.4'
