@@ -5,7 +5,8 @@
 # Rest easy, we'll take it from here...
 
 # Configuration
-resolver_tld='docker'
+network_name='dream'
+resolver_tld='dream'
 docker_ip='0.0.0.0'
 
 # Helpers
@@ -28,6 +29,9 @@ if ! hash docker 2>/dev/null; then
 fi
 
 # And now the magic...
+log "Creating ${network_name} network"
+docker network create ${network_name}
+
 log "Adding ${resolver_tld} resolver"
 
 # Since we confiure a resolver entry for $resolver_tld on the host machine, both

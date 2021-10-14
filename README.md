@@ -23,11 +23,11 @@ This does the following:
 
 ## Usage
 
-A container with the environment variable `VIRTUAL_HOST=hello.docker` will be accessible at `http://hello.docker`. This is due to nginx-proxy automatically proxying these virtual hosts and dnsmasq forwarding the requests on to the proxy. The resolver configuration on your host machine allows your browser/terminal to access them.
+A container with the environment variable `VIRTUAL_HOST=hello.dream` will be accessible at `http://hello.dream`. This is due to nginx-proxy automatically proxying these virtual hosts and dnsmasq forwarding the requests on to the proxy. The resolver configuration on your host machine allows your browser/terminal to access them.
 
 Basic example to demonstrate this:
 
-`docker run --rm -e VIRTUAL_HOST=hello.docker -p 80 tutum/hello-world`
+`docker run --rm -e VIRTUAL_HOST=hello.dream -p 80 tutum/hello-world`
 
 Using `docker-compose` you can easily set pre-configured `VIRTUAL_HOST` settings for your applications using the `environment` key:
 
@@ -40,5 +40,5 @@ app:
   ports:
     - "3000"
   environment:
-    - VIRTUAL_HOST=myapp.docker
+    - VIRTUAL_HOST=myapp.dream
 ```
