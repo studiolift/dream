@@ -4,13 +4,13 @@ services:
     cap_add:
     - NET_ADMIN
     command: --address=/dream/0.0.0.0
-    image: andyshinn/dnsmasq
+    image: 4km3/dnsmasq
     ports:
     - 53:53/tcp
     - 53:53/udp
     restart: always
   nginx:
-    image: jwilder/nginx-proxy
+    image: nginxproxy/nginx-proxy
     ports:
     - 80:80/tcp
     restart: always
